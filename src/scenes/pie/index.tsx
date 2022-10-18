@@ -1,15 +1,14 @@
 import { Box } from "@mui/material";
-
 import Header from "../../components/Header";
 
-const Dashboard = () => {
+const Pie = () => {
   return (
     <Box m="20px">
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="Dashboard" subtitle="This is the dashboard" />
+        <Header title="Pie Chart" subtitle="slice of pie please" />
       </Box>
     </Box>
   );
 };
 
-export default Dashboard;
+export default Pie;

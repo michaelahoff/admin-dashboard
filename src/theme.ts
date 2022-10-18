@@ -161,7 +161,7 @@ export const themeSettings = (mode) => {
             },
           }),
     },
-    typograph: {
+    typography: {
       fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
       fontSize: 12,
       h1: {
