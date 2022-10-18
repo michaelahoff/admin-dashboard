@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { tokens } from "../../theme";

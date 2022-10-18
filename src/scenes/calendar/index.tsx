@@ -1,3 +1,4 @@
+//@ts-nocheck
 import "@fullcalendar/react/dist/vdom"; //required for Vite
 import { useState } from "react";
 import {
@@ -21,7 +22,7 @@ const Calendar = () => {
   const colors = tokens(theme.palette.mode);
   const [currentEvents, setCurrentEvents] = useState([]);
 
-  const handleDateClick = (selected: any): any => {
+  const handleDateClick = (selected) => {
     const title = prompt("please enter a new title for your event");
     const calendarApi = selected.view.calendar;
     calendarApi.unselect();
