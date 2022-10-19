@@ -1,8 +1,8 @@
-//@ts-nocheck
 import { Typography, Box, useTheme } from "@mui/material";
 import { tokens } from "../theme";
+import { HeaderText } from "../types";
 
-const Header = ({ title, subtitle }) => {
+const Header = ({ title, subtitle }: HeaderText) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (

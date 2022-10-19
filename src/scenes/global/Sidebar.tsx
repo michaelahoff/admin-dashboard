@@ -1,10 +1,9 @@
-//@ts-nocheck
-import { useState } from "react";
+import React, { Component, ReactNode, useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { tokens } from "../../theme";
 import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
-import { Box, Icon, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
@@ -17,8 +16,22 @@ import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
+import { OverridableComponent } from "@mui/material/OverridableComponent";
+import { SvgIconComponent } from "@mui/icons-material";
 
-const Item = ({ title, to, icon, selected, setSelected }) => {
+const Item = ({
+  title,
+  to,
+  icon,
+  selected,
+  setSelected,
+}: {
+  title: string;
+  to: string;
+  icon: ReactNode;
+  selected: string;
+  setSelected: React.Dispatch<React.SetStateAction<string>>;
+}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (

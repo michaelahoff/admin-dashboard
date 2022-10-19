@@ -1,6 +1,5 @@
-//@ts-nocheck
 import { Box, Grid, Typography, useTheme } from "@mui/material";
-import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+import { DataGrid, GridColumns, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataTeam } from "../../data/mockData";
 import AdminPanelSettingsOutlined from "@mui/icons-material/AdminPanelSettingsOutlined";
@@ -12,7 +11,7 @@ const Team = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
-  const columns = [
+  const columns: GridColumns = [
     { field: "id", headerName: "ID" },
     {
       field: "name",
@@ -35,6 +34,7 @@ const Team = () => {
       flex: 1,
       renderCell: ({ row: { access } }) => {
         return (
+          //@ts-ignore
           <Box
             width="60%"
             m="0 auto"

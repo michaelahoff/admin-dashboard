@@ -1,6 +1,5 @@
-//@ts-nocheck
 import { Box, useTheme, Typography } from "@mui/material";
-import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+import { DataGrid, GridColumns, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataInvoices } from "../../data/mockData";
 import Header from "../../components/Header";
@@ -9,7 +8,7 @@ const Invoices = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
-  const columns = [
+  const columns: GridColumns = [
     { field: "id", headerName: "ID" },
     {
       field: "name",

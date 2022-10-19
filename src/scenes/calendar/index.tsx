@@ -1,4 +1,3 @@
-//@ts-nocheck
 import "@fullcalendar/react/dist/vdom"; //required for Vite
 import { useState } from "react";
 import {
@@ -17,12 +16,25 @@ import listPlugin from "@fullcalendar/list";
 import Header from "../../components/Header";
 import { tokens } from "../../theme";
 
+interface CalendarSelected {
+  allDay: boolean;
+  endStr: string;
+  startStr: string;
+  view: any;
+  start: any;
+  end: any;
+  jsEvent: any;
+  event: { title: string; remove: any };
+  [propName: string]: any;
+}
+
 const Calendar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [currentEvents, setCurrentEvents] = useState([]);
+  const [currentEvents, setCurrentEvents] = useState<any[]>([]);
 
-  const handleDateClick = (selected) => {
+  const handleDateClick = (selected: CalendarSelected) => {
+    console.log(selected);
     const title = prompt("please enter a new title for your event");
     const calendarApi = selected.view.calendar;
     calendarApi.unselect();
@@ -38,10 +50,9 @@ const Calendar = () => {
       console.log(eventObj);
       calendarApi.addEvent(eventObj);
     }
-    return;
   };
 
-  const handleEventClick = (selected) => {
+  const handleEventClick = (selected: CalendarSelected) => {
     if (
       window.confirm(
         `Are you sure you want to delete the event ${selected.event.title}`
@@ -49,13 +60,13 @@ const Calendar = () => {
     ) {
       selected.event.remove();
     }
-    return;
   };
 
   return (
     <Box m="20px">
       <Header title="Calendar" subtitle="Full Calendar Page" />
       <Box display="flex" justifyContent="space-between">
+        {/*@ts-ignore*/}
         <Box
           flex="1 1 20%"
           backgroundColor={colors.primary[400]}
@@ -90,6 +101,7 @@ const Calendar = () => {
           </List>
         </Box>
         <Box flex="1 1 100%" ml="15px">
+          {/*@ts-ignore*/}
           <FullCalendar
             height="75vh"
             plugins={[
